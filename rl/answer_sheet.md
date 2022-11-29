@@ -43,3 +43,10 @@ train last 10: 7.7
 
 train: 9.69
 test: 5.0
+
+# 3.4.10
+DQNにしてみると
+平均step数
+
+train: 14.76
+test: 5.0

@@ -3,29 +3,29 @@
 ## 演習 1.1.2
 
 作成している行
-agent:
-env:
+agent: L10
+env: L8
 
 呼び出されている変数・メソッド
 
 agent:
-*
-*
-*
-*
-*
+* `act()`
+* `act_and_train()`
+* `get_statistics()`
+* `stop_episode_and_train()`
+* `stop_episode()`
 
 env:
-*
-*
-*
+* `reset()`
+* `render()`
+* `step()`
 
 ## 演習 1.1.3
 
 平均step数
 
-train:
-test:
+train: 47.61
+test: 55.46
 
 ## 演習 1.1.8
 

@@ -24,8 +24,9 @@ for word in initial_words:
     print(word)
     word_id = dataset.english_word_id(word)
     if word_id is None:
-        sys.stderr.write("Error : Unknown word " + word + "\n")
-        sys.exit()
+        word_id = sentence_data.UNKNOWN_WORD_ID
+        sys.stderr.write(
+            f"Warining : Unknown word {word}, replaced with <UNKNOWN>\n")
     # 単語をLSTMに入力する
     word_id = torch.tensor(word_id,dtype=torch.long).unsqueeze(-1)
     next_y = model(word_id)

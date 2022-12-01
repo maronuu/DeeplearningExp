@@ -8,7 +8,7 @@ class  MLP(nn.Module):
 	Network / Multilayer perseptron
 
 	"""
-	def __init__(self, n_units, n_in, n_out):
+	def __init__(self, n_units, n_in, n_out, use_hidden=False):
 		"""
 		Construct multilayer perceptron
 
@@ -22,6 +22,7 @@ class  MLP(nn.Module):
 			dimension of output
 		"""
 		super(MLP, self).__init__()
+		self.use_hidden = use_hidden
 
 		self.fc1 = nn.Linear(n_in, n_units)	# n_in -> n_units
 		self.fc2 = nn.Linear(n_units, n_units)	# n_units -> n_units
@@ -45,6 +46,9 @@ class  MLP(nn.Module):
 		"""
 		h = F.relu(self.fc1(x))
 		h = F.relu(self.fc2(h))
+		
+		if self.use_hidden:
+			return h
 		y = self.fc3(h)
 		return y
 

@@ -89,3 +89,16 @@ src_feature.shape : torch.Size([1, 4096])
 良くなった。
 
 # 4.3.4
+MNISTでMLP学習
+model weight path: `./mnist_mlp_result`
+
+コードは`search_mymlp.py, create_db_mymlp.py`
+```bash
+$ python search_mymlp.py -i ./data/mini_mnist/test/4/6.png
+src_feature.shape : torch.Size([1, 3, 784, 1000])
+data/mini_mnist/train/./7/158.png
+data/mini_mnist/train/./4/2.png
+data/mini_mnist/train/./4/92.png
+data/mini_mnist/train/./6/18.png
+data/mini_mnist/train/./4/26.png
+```

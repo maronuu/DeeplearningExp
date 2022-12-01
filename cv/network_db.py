@@ -41,8 +41,9 @@ class Vgg16(torch.nn.Module):
 			x = model(x)
 		x = self.avgpool(x)
 		x = torch.flatten(x, 1)
+		# print(f"DEBUG: len(sequnetials) = {len(self.sequentials)}")
 		for i,model in enumerate(self.sequentials):
 			x = model(x)
 			# Return output of 1st layer in sequentials
-			if i == 3:
+			if i == 0:
 				return x

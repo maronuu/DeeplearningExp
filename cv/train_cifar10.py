@@ -1,5 +1,6 @@
 
 import argparse
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -148,6 +149,7 @@ def main():
 
 	plt.savefig(args.out + '/accuracy_cifar.png')
 	#plt.show()
+	print(f"max accuracy when epoch = {np.argmax(ac_val) + 1}")
 
 if __name__ == '__main__':
 	main()

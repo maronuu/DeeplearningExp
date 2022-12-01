@@ -28,7 +28,7 @@ def main():
 
 	# Set up a neural network to test
 	net = MLP(args.unit, 28*28, 10)
-	# Load designated network weight 
+	# Load designated network weight
 	net.load_state_dict(torch.load(args.model))
 	# Set model to GPU
 	device = 'cpu'
@@ -52,9 +52,12 @@ def main():
 		# Forward
 		outputs = net(image)
 		# Predict the label
-		_, predicted = torch.max(outputs, 1)
+		_, predicted = torch.topk(outputs, k=3, dim=1)
 		# Print the result
-		print('Predicted label : {}'.format(predicted.item()))
+		# print('Predicted label : {}'.format(predicted.item())
+		print('Predicted label : top1 {}'.format(predicted[:, 0]))
+		print('Predicted label : top2 {}'.format(predicted[:, 1]))
+		print('Predicted label : top3 {}'.format(predicted[:, 2]))
 
 if __name__ == '__main__':
 	main()

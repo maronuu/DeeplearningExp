@@ -5,12 +5,12 @@ from print_buffer import PrintBuffer
 
 
 # 環境と agent を用意
-env = gym.make('EasyMaze-v0')
-# env = gym.make('CartPole-v0')
+# env = gym.make('EasyMaze-v0')
+env = gym.make('CartPole-v0')
 # agent = agents.RandomAgent(env)
 # agent = agents.RulebaseAgent(env)
-agent = agents.TableQAgent(env)
-# agent = agents.DQNAgent(env)
+# agent = agents.TableQAgent(env)
+agent = agents.DQNAgent(env)
 
 
 # 描画設定
@@ -46,9 +46,11 @@ for interact_mode in ['train', 'test']:  # 一周目: train, 二周目: test
             if prints_detail[interact_mode]:
                 # 環境を描画
                 if render_mode == 'human':
-                    env.render(render_mode)
+                    # env.render(render_mode)
+                    env.render()
                 else:
-                    render_buffer.prints(env.render(render_mode))
+                    render_buffer.prints(env.render())
+                    # render_buffer.prints(env.render(render_mode))
             # agentに観測から行動を選択してもらう
             if interact_mode == 'train':
                 # 学習もしてもらう
@@ -89,4 +91,4 @@ for interact_mode in ['train', 'test']:  # 一周目: train, 二周目: test
             average_steps = sum_of_all_steps / (i_episode + 1)
             print(interact_mode, 'episode:', i_episode + 1, 'T:', average_steps,
                   'R:', average_rewards, 'statistics:', agent.get_statistics())
-            print(agent.q_table_to_str())
+            # print(agent.q_table_to_str())

@@ -86,7 +86,7 @@ src_feature.shape : torch.Size([1, 4096])
 ./data/mini_mnist/train/./4/115.png
 ./data/mini_mnist/train/./4/139.png
 ```
-良くなった。
+top5の精度は良くなった。
 
 # 4.3.4
 MNISTでMLP学習

@@ -26,7 +26,7 @@ for i in range(0,len(datalist)):
         src_mgc = src_mgc.reshape(len(src_mgc)//dim, dim)
     
     fs, data = wavfile.read("data/SF/wav/{}.wav".format(datalist[i]))  # 入力音声そのものをもってくる
-    data = data.astype(np.float)
+    data = data.astype(np.float64)
 
     diff_mgc = conv_mgc - src_mgc  # 差分のフィルタを用意する
 
